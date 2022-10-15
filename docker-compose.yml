@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: classic_rock
+    ports:
+      - '5432:5432'
+  apple_challenge:
+    build:
+      context: .
+    depends_on:
+      - postgres
+    ports:
+      - '3000:3000'
+    command:
+      - /bin/bash
+      - -c
+      - |
+        ./wait-for-it.sh db:5432
+        npx sequelize-cli db:migrate
+        npx sequelize-cli db:seed:all
+        npm start
