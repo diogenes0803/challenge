@@ -13,5 +13,7 @@ services:
       context: .
     depends_on:
       - postgres
+    environment:
+      NODE_ENV: docker-dev
     ports:
       - '3000:3000'

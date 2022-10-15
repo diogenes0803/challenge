@@ -3,6 +3,13 @@
     "username": "postgres",
     "password": "root",
     "database": "classic_rock",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "docker-dev": {
+    "username": "postgres",
+    "password": "root",
+    "database": "classic_rock",
     "host": "postgres",
     "dialect": "postgres"
   }
