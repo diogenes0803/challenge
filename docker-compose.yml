@@ -15,11 +15,3 @@ services:
       - postgres
     ports:
       - '3000:3000'
-    command:
-      - /bin/bash
-      - -c
-      - |
-        ./wait-for-it.sh db:5432
-        npx sequelize-cli db:migrate
-        npx sequelize-cli db:seed:all
-        npm start
